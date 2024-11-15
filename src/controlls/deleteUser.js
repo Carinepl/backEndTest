@@ -1,19 +1,22 @@
 
-const users = require('../repositores/users');
+const  {deleteUser } = require('../repositores/users');
 
 
-
-const deleteUser = (request, response) => {
+const deleteUserControls = (request, response) => {
     const { id } = request.params;
-    const userIndex = users.findIndex((_user) => _user.id === parseInt(id));
 
-    if (userIndex === -1) {
-        return response.status(404).json({ message: "Recurso não encontrado" });
+    try {
+        deleteUser(id);
+        
+        
+        return response.sendStatus(204);
+    } catch (error) {
+        if (error.message === "Recurso não encontrado") {
+            return response.status(404).json({ message: error.message });
+        }
+        
+        return response.status(500).json({ message: "Erro interno do servidor" });
     }
-
-    users.splice(userIndex, 1);
-    return response.sendStatus(204);
 };
 
-
-module.exports = { deleteUser };
+module.exports =  {deleteUserControls};

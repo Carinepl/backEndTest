@@ -1,6 +1,6 @@
-const { createUser } = require('../userCase/CreatUser');
+const createUser = require('../userCase/createUser');
 
-const createUser = (request, response) => {
+const createUserControls = (request, response) => {
     try {
         const data = request.body;
         const newUser = createUser(data);
@@ -12,4 +12,4 @@ const createUser = (request, response) => {
 };
 
 
-module.exports = { createUser };
+module.exports = { createUserControls};
