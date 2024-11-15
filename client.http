@@ -1,0 +1,36 @@
+### REQUISIÇÃOI DE CRIAÇÃO DE USUARIOS
+POST http://192.168.60.90:3000/users
+Content-Type: application/json
+Accept: application/json
+
+{
+    "id":4,
+    "name":"Lucas"
+}
+
+
+###REQUISIÇÃO CAPTURAR TODOS OS USUÁRIOS
+GET http://192.168.60.90:3000/users
+Content-Type: application/json
+Accept: application/json
+
+###
+
+GET http://192.168.60.90:3000/users/6
+Content-Type: application/json
+Accept: application/json
+
+###
+DELETE http://192.168.60.90:3000/users/2
+Content-Type: application/json
+Accept: application/json
+
+###
+PUT  http://192.168.60.90:3000/users/3
+Content-Type: application/json
+Accept: application/json
+
+{
+
+    "name":"Wesley"
+}
